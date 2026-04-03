@@ -1,0 +1,36 @@
+:root {
+  --primary-color: #000000;
+  --secondary-color: #0a0a0a;
+  --accent-color: #d4a574;
+  --text-primary: #ffffff;
+  --text-secondary: #d0d0d0;
+  --border-color: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+    font-size: 1000px;
+    letter-spacing: 0.5px;   
+}
+
+body {
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000505 100%);
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000505 100%);
+}

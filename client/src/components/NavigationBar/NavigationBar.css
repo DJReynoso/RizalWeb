@@ -1,0 +1,6 @@
+.nav-link {
+    transition: all 0.3s ease;
+}
+.nav-link.active {
+    color: #d4a574 !important;
+}
