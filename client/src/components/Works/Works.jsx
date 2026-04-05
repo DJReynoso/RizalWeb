@@ -1,4 +1,4 @@
-function Work() {
+function Works() {
   return (
     <>
       <div></div>
@@ -6,4 +6,4 @@ function Work() {
   );
 }
 
-export default Work;
+export default Works;

@@ -37,6 +37,120 @@
     box-shadow: 0 0 10px #d4a574, 0 0 10px #d4a574;
     transform: translateY(-5px);
 }
+
 .name-container {
+    position: relative;
+    height: 5rem;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name-container h1 {
+    transition: all 0.3s ease;
+     animation: pulse-color 2s infinite;
+}
+
+@keyframes pulse-color {
+  0%, 100% {
+    text-shadow: transparent;
+  }
+  50% {
+    text-shadow: 0 0 10px #d4a574;
+  }
+}
+
+.timeline-container {
+    margin-top: 4rem;
+    padding: 2rem;
+    width: 100%;
+    max-width: 900px;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, #d4a574 0%, transparent 100%);
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+.timeline-item:nth-child(7) { animation-delay: 0.7s; }
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+}
+
+.timeline-date {
+    width: 45%;
+    padding: 3rem;
+    font-size: 1.3rem;
+    font-weight: "600";
+    color: #d4a574;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+    text-align: left;
+}
+
+.timeline-event {
+    width: 45%;
+    max-height: 100px;
+    padding: 1rem;
+    background: rgba(212, 165, 116, 0.1);
+    border-left: 3px solid #d4a574;
+    color: #d0d0d0;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:nth-child(even) .timeline-event {
+    border-left: none;
+    border-right: 3px solid #d4a574;
+}
+
+.timeline-event:hover {
+    background: rgba(212, 165, 116, 0.2);
+    box-shadow: 0 0 15px rgba(212, 165, 116, 0.3);
+    transform: translateY(-5px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
