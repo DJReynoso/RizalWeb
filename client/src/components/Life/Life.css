@@ -96,41 +96,104 @@
 
 .content-card:nth-child(3) {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(10, 10, 10, 0.6) 100%), 
-                url('/src/assets/education.jpeg') center/cover no-repeat !important;
+                url('/src/assets/relationships.jpg') center/cover no-repeat !important;
 }
 
 .content-card:nth-child(3):hover {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 20, 0.5) 50%, rgba(10, 10, 10, 0.4) 100%), 
-                url('/src/assets/education.jpeg') center/cover no-repeat !important;
+                url('/src/assets/relationships.jpg') center/cover no-repeat !important;
 }
 
 .content-card:nth-child(4) {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(10, 10, 10, 0.6) 100%), 
-                url('/src/assets/travels.jpg') center/cover no-repeat !important;
+                url('/src/assets/education.jpeg') center/cover no-repeat !important;
 }
 
 .content-card:nth-child(4):hover {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 20, 0.5) 50%, rgba(10, 10, 10, 0.4) 100%), 
-                url('/src/assets/travels.jpg') center/cover no-repeat !important;
+                url('/src/assets/education.jpeg') center/cover no-repeat !important;
 }
 
 .content-card:nth-child(5) {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(10, 10, 10, 0.6) 100%), 
-                url('/src/assets/reformist.jpeg') center/cover no-repeat !important;
+                url('/src/assets/travels.jpg') center/cover no-repeat !important;
 }
 
 .content-card:nth-child(5):hover {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 20, 0.5) 50%, rgba(10, 10, 10, 0.4) 100%), 
-                url('/src/assets/reformist.jpeg') center/cover no-repeat !important;
+                url('/src/assets/travels.jpg') center/cover no-repeat !important;
 }
 
 .content-card:nth-child(6) {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(10, 10, 10, 0.6) 100%), 
-                url('/src/assets/death.jpg') center top/cover no-repeat !important;
+                url('/src/assets/reformist.jpeg') center/cover no-repeat !important;
 }
 
 .content-card:nth-child(6):hover {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 20, 0.5) 50%, rgba(10, 10, 10, 0.4) 100%), 
+                url('/src/assets/reformist.jpeg') center/cover no-repeat !important;
+}
+
+.content-card:nth-child(7) {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(10, 10, 10, 0.6) 100%), 
+                url('/src/assets/death.jpg') center top/cover no-repeat !important;
+    grid-column: 1 / -1;
+    min-width: 380px;
+    margin: 0 auto;
+}
+
+.content-card:nth-child(7):hover {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 20, 0.5) 50%, rgba(10, 10, 10, 0.4) 100%), 
                 url('/src/assets/death.jpg') center top/cover no-repeat !important;
 }
 
+/* Modal Styling */
+.life-modal {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%);
+    border: 1px solid #d4a574;
+    border-radius: 10px;
+    color: #d4a574;
+}
+
+.life-modal-header {
+    border-bottom: 1px solid #d4a574;
+    background: rgba(10, 10, 10, 0.5);
+}
+
+.life-modal-header .modal-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #d4a574;
+}
+
+.life-modal-body {
+    padding: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #d4a574;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.life-modal-footer {
+    border-top: 1px solid #d4a574;
+    background: rgba(10, 10, 10, 0.5);
+}
+
+.life-modal-footer .btn-secondary {
+    background-color: #d4a574;
+    border-color: #d4a574;
+    color: #000;
+    font-weight: 600;
+}
+
+.life-modal-footer .btn-secondary:hover {
+    background-color: #c99463;
+    border-color: #c99463;
+}
+
+/* Bootstrap modal backdrop styling */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
