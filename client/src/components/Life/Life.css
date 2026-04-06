@@ -1,0 +1,86 @@
+.life-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    color: #d4a574;
+    padding: 2rem;
+}
+
+.life-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 3rem;
+}
+
+.life-title {
+    margin-bottom: 2rem;
+}
+
+.life-title h1 {
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.content-grid {
+    display: grid;
+    grid-column: span 3;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(10, 10, 10, 0.5) 0%, rgba(5, 5, 5, 0.5) 100%);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #d4a574;
+    border: 1px solid #1a1a1a;
+    transition: all 0.3s ease;
+    height: 200px;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.content-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(180deg, #d4a574, transparent);
+}
+
+.content-card:hover {
+  transform: translateY(-5px);
+  border-color: #d4a574;
+  box-shadow: 0 10px 30px rgba(212, 165, 116, 0.15);
+}
+
+.basic-profile {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(20, 20, 20, 0.7) 50%, rgba(10, 10, 10, 0.6) 100%), 
+                url('/src/assets/basicProfile.jpeg') center/cover no-repeat !important;
+}
+
+.basic-profile:hover {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(20, 20, 20, 0.5) 50%, rgba(10, 10, 10, 0.4) 100%), 
+                url('/src/assets/basicProfile.jpeg') center/cover no-repeat !important;
+}
+

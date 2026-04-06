@@ -10,7 +10,7 @@ function NavigationBar() {
           <Navbar.Brand
             as={NavLink}
             to="/"
-            className="fs-2"
+            className="fs-3"
             style={{
               color: "#d4a574",
               fontWeight: "bold",
@@ -22,13 +22,13 @@ function NavigationBar() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link as={NavLink} to="/" className="fs-5 ms-3">
+              <Nav.Link as={NavLink} to="/" className="fs-6 ms-3">
                 Home
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/life" className="fs-5 ms-3">
+              <Nav.Link as={NavLink} to="/life" className="fs-6 ms-3">
                 Life
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/works" className="fs-5 ms-3">
+              <Nav.Link as={NavLink} to="/works" className="fs-6 ms-3">
                 Works
               </Nav.Link>
             </Nav>
