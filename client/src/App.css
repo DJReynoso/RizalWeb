@@ -1,5 +1,41 @@
+.ambient-gradient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -3;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(212, 165, 116, 0.12), transparent 36%),
+    radial-gradient(circle at 82% 24%, rgba(120, 120, 255, 0.08), transparent 34%),
+    radial-gradient(circle at 50% 100%, rgba(212, 165, 116, 0.08), transparent 42%);
+  animation: ambientShift 16s ease-in-out infinite alternate;
+}
+
+.ambient-noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  opacity: 0.08;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.45) 0.5px, transparent 0.5px);
+  background-size: 3px 3px;
+}
+
+.ambient-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(circle, transparent 45%, rgba(0, 0, 0, 0.5) 100%);
+}
+
 .navigation-bar-container {
   border-bottom: 1px solid #1a1a1a;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 6, 6, 0.82) 0%,
+    rgba(6, 6, 6, 0.58) 100%
+  );
 }
 
 .smoke-video-container {
@@ -106,4 +142,40 @@
   background: radial-gradient(ellipse at center, rgba(150, 150, 150, 0.5) 0%, rgba(100, 100, 100, 0.3) 50%, rgba(50, 50, 50, 0) 100%);
   pointer-events: none;
   animation: smokeTransition 0.8s ease-in-out;
+}
+
+.site-footer {
+  margin-top: 2.5rem;
+  padding: 1.4rem 1rem 1.2rem;
+  text-align: center;
+  border-top: 1px solid rgba(212, 165, 116, 0.25);
+  background: linear-gradient(
+    to top,
+    rgba(6, 6, 6, 0.9) 0%,
+    rgba(6, 6, 6, 0.65) 100%
+  );
+}
+
+.site-footer-creators {
+  margin: 0;
+  color: #d4a574;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.site-footer-rights {
+  margin: 0.35rem 0 0;
+  color: #b9b9b9;
+  font-size: 0.92rem;
+}
+
+@keyframes ambientShift {
+  0% {
+    transform: scale(1) translateX(0);
+    filter: saturate(1);
+  }
+  100% {
+    transform: scale(1.04) translateX(1%);
+    filter: saturate(1.08);
+  }
 }

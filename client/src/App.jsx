@@ -113,6 +113,9 @@ function App() {
 
   return (
     <>
+      <div className="ambient-gradient" aria-hidden="true"></div>
+      <div className="ambient-noise" aria-hidden="true"></div>
+      <div className="ambient-vignette" aria-hidden="true"></div>
       <div className="navigation-bar-container">
         <NavigationBar onNavigate={handlePageChange} />
       </div>
@@ -147,6 +150,14 @@ function App() {
           </Routes>
         </motion.div>
       </AnimatePresence>
+      <footer className="site-footer">
+        <p className="site-footer-creators">
+          Created by Daniel Jess Reynoso, Rafael Marco Vistar, Shiloh Marfil
+        </p>
+        <p className="site-footer-rights">
+          © {new Date().getFullYear()} All rights reserved.
+        </p>
+      </footer>
     </>
   );
 }

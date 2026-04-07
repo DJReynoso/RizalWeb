@@ -19,7 +19,7 @@ function NavigationBar({ onNavigate }) {
           <Navbar.Brand
             as={NavLink}
             to="/rizal"
-            className="fs-3"
+            className="fs-3 brand-link"
             style={{
               color: "#d4a574",
               fontWeight: "bold",
@@ -35,7 +35,7 @@ function NavigationBar({ onNavigate }) {
               <Nav.Link
                 as={NavLink}
                 to="/"
-                className="fs-6 ms-3"
+                className="fs-6 ms-3 nav-item-link"
                 onClick={playGunshotSound}
               >
                 Home
@@ -43,7 +43,7 @@ function NavigationBar({ onNavigate }) {
               <Nav.Link
                 as={NavLink}
                 to="/life"
-                className="fs-6 ms-3"
+                className="fs-6 ms-3 nav-item-link"
                 onClick={playGunshotSound}
               >
                 Life
@@ -51,7 +51,7 @@ function NavigationBar({ onNavigate }) {
               <Nav.Link
                 as={NavLink}
                 to="/works"
-                className="fs-6 ms-3"
+                className="fs-6 ms-3 nav-item-link"
                 onClick={playGunshotSound}
               >
                 Works
