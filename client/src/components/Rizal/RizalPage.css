@@ -100,6 +100,15 @@
 	font-size: 1rem;
 }
 
+.rizal-caption {
+	margin-top: 0.7rem;
+	padding-top: 0.7rem;
+	border-top: 1px solid rgba(212, 165, 116, 0.25);
+	font-size: 0.9rem;
+	line-height: 1.55;
+	color: #bfbfbf;
+}
+
 .rizal-poem-text {
 	margin-top: 1rem;
 	display: grid;

@@ -32,6 +32,16 @@ function RizalPage() {
             <div className="rizal-meta">
               <h2>Fragmented Nation</h2>
               <p>Artist: Daniel Jess Reynoso</p>
+              <p className="rizal-caption">
+                Disclaimer: This artwork is a symbolic and respectful
+                interpretation inspired by Philippine national colors and
+                motifs. It is presented as a flag-inspired artwork and artistic
+                interpretation, not as an official depiction of the Philippine
+                Flag. It is a metaphorical, respectful tribute to struggle and
+                nation-building. It adheres to Republic Act No. 8491 (Flag and
+                Heraldic Code of the Philippines) and does not intend any
+                malicious, disrespectful, or harmful representation.
+              </p>
             </div>
           </article>
 
