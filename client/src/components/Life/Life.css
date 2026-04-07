@@ -71,7 +71,7 @@
 .content-card:hover {
   transform: translateY(-5px);
   border-color: #d4a574;
-  box-shadow: 0 10px 30px rgba(212, 165, 116, 0.15);
+  animation: smoke 2s ease-in-out infinite;
 }
 
 .basic-profile {
@@ -196,4 +196,23 @@
 /* Bootstrap modal backdrop styling */
 .modal-backdrop {
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Smoke animation */
+@keyframes smoke {
+  0% {
+    box-shadow: 0 0 10px rgba(212, 165, 116, 0.5),
+                0 0 20px rgba(212, 165, 116, 0.3),
+                0 0 30px rgba(212, 165, 116, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(212, 165, 116, 0.6),
+                0 0 40px rgba(212, 165, 116, 0.4),
+                0 0 60px rgba(212, 165, 116, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(212, 165, 116, 0.5),
+                0 0 20px rgba(212, 165, 116, 0.3),
+                0 0 30px rgba(212, 165, 116, 0.1);
+  }
 }
