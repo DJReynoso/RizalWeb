@@ -1,5 +1,6 @@
 import "./Life.css";
 import { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 
 function Life() {
   const [selectedCard, setSelectedCard] = useState(null);
@@ -177,8 +178,7 @@ Schumacher, J. N. (1997). The Propaganda Movement: 1880-1895. Ateneo de Manila U
             <div
               key={index}
               className={`content-card ${index === 0 ? "basic-profile" : ""}`}
-              data-bs-toggle="modal"
-              data-bs-target={`#modal${card.id}`}
+              onClick={() => setSelectedCard(card)}
               style={{ cursor: "pointer" }}
             >
               {card.title}
@@ -186,43 +186,28 @@ Schumacher, J. N. (1997). The Propaganda Movement: 1880-1895. Ateneo de Manila U
           ))}
         </div>
 
-        {/* Modals */}
-        {cards.map((card) => (
-          <div
-            key={card.id}
-            className="modal fade"
-            id={`modal${card.id}`}
-            tabIndex="-1"
-            aria-labelledby={`modal${card.id}Label`}
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-lg">
-              <div className="modal-content life-modal">
-                <div className="modal-header life-modal-header">
-                  <h5 className="modal-title" id={`modal${card.id}Label`}>
-                    {card.title}
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close btn-close-white"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body life-modal-body">{card.content}</div>
-                <div className="modal-footer life-modal-footer">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+        <Modal
+          show={Boolean(selectedCard)}
+          onHide={() => setSelectedCard(null)}
+          size="lg"
+          centered
+          dialogClassName="life-modal-dialog"
+          contentClassName="life-modal"
+        >
+          <Modal.Header closeButton className="life-modal-header">
+            <Modal.Title>
+              {selectedCard?.title}
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="life-modal-body">
+            {selectedCard?.content}
+          </Modal.Body>
+          <Modal.Footer className="life-modal-footer">
+            <Button variant="secondary" onClick={() => setSelectedCard(null)}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </>
   );

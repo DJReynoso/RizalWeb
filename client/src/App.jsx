@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Home from "./components/Home/Home";
@@ -7,6 +7,8 @@ import Works from "./components/Works/Works";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import smokeVideo from "./assets/smokeTransitionAnimation.mp4";
+
+const SMOKE_FADE_MS = 900;
 
 const pageVariants = {
   initial: {
@@ -37,19 +39,71 @@ const pageVariants = {
 function App() {
   const location = useLocation();
   const [showSmoke, setShowSmoke] = useState(false);
+  const [isSmokeFading, setIsSmokeFading] = useState(false);
   const videoRef = React.useRef(null);
+  const hideSmokeTimeoutRef = React.useRef(null);
+
+  const beginSmokeFadeOut = () => {
+    if (isSmokeFading) {
+      return;
+    }
+
+    setIsSmokeFading(true);
+    hideSmokeTimeoutRef.current = setTimeout(() => {
+      setShowSmoke(false);
+      setIsSmokeFading(false);
+      hideSmokeTimeoutRef.current = null;
+    }, SMOKE_FADE_MS);
+  };
 
   const handlePageChange = () => {
+    if (hideSmokeTimeoutRef.current) {
+      clearTimeout(hideSmokeTimeoutRef.current);
+      hideSmokeTimeoutRef.current = null;
+    }
+
     setShowSmoke(true);
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
-      videoRef.current.play();
+    setIsSmokeFading(false);
+
+    requestAnimationFrame(() => {
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+        videoRef.current
+          .play()
+          .catch((err) => console.error("Video play error:", err));
+      }
+    });
+  };
+
+  useEffect(() => {
+    return () => {
+      if (hideSmokeTimeoutRef.current) {
+        clearTimeout(hideSmokeTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleSmokeTimeUpdate = () => {
+    const video = videoRef.current;
+    if (!video || isSmokeFading || !Number.isFinite(video.duration) || video.duration <= 0) {
+      return;
+    }
+
+    const remainingMs = (video.duration - video.currentTime) * 1000;
+    if (remainingMs <= SMOKE_FADE_MS) {
+      beginSmokeFadeOut();
     }
   };
 
-  const handleVideoEnd = () => {
-    setShowSmoke(false);
+  const handleSmokeEnded = () => {
+    if (!isSmokeFading) {
+      beginSmokeFadeOut();
+    }
   };
+
+  useEffect(() => {
+    setIsSmokeFading(false);
+  }, [location.pathname]);
 
   return (
     <>
@@ -57,14 +111,19 @@ function App() {
         <NavigationBar onNavigate={handlePageChange} />
       </div>
       {showSmoke && (
-        <video
-          ref={videoRef}
-          src={smokeVideo}
-          className="smoke-video"
-          muted
-          autoPlay
-          onEnded={handleVideoEnd}
-        />
+        <div
+          className={`smoke-video-container ${isSmokeFading ? "smoke-fade-out" : ""}`}
+        >
+          <video
+            ref={videoRef}
+            src={smokeVideo}
+            className="smoke-video"
+            muted
+            autoPlay
+            onTimeUpdate={handleSmokeTimeUpdate}
+            onEnded={handleSmokeEnded}
+          />
+        </div>
       )}
       <AnimatePresence mode="wait">
         <motion.div
