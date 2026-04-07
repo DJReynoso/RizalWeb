@@ -195,9 +195,7 @@ Schumacher, J. N. (1997). The Propaganda Movement: 1880-1895. Ateneo de Manila U
           contentClassName="life-modal"
         >
           <Modal.Header closeButton className="life-modal-header">
-            <Modal.Title>
-              {selectedCard?.title}
-            </Modal.Title>
+            <Modal.Title>{selectedCard?.title}</Modal.Title>
           </Modal.Header>
           <Modal.Body className="life-modal-body">
             {selectedCard?.content}

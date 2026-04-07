@@ -85,7 +85,12 @@ function App() {
 
   const handleSmokeTimeUpdate = () => {
     const video = videoRef.current;
-    if (!video || isSmokeFading || !Number.isFinite(video.duration) || video.duration <= 0) {
+    if (
+      !video ||
+      isSmokeFading ||
+      !Number.isFinite(video.duration) ||
+      video.duration <= 0
+    ) {
       return;
     }
 
