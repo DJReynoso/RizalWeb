@@ -18,7 +18,7 @@ function NavigationBar({ onNavigate }) {
         <Container>
           <Navbar.Brand
             as={NavLink}
-            to="/"
+            to="/rizal"
             className="fs-3"
             style={{
               color: "#d4a574",

@@ -4,6 +4,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Home from "./components/Home/Home";
 import Life from "./components/Life/Life";
 import Works from "./components/Works/Works";
+import RizalPage from "./components/Rizal/RizalPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import smokeVideo from "./assets/smokeTransitionAnimation.mp4";
@@ -140,6 +141,7 @@ function App() {
         >
           <Routes location={location}>
             <Route path="/" element={<Home />} />
+            <Route path="/rizal" element={<RizalPage />} />
             <Route path="/life" element={<Life />} />
             <Route path="/works" element={<Works />} />
           </Routes>
